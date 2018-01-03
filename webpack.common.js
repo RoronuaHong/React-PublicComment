@@ -48,7 +48,7 @@ const config = {
             },
             /*压缩css*/
             {
-                test: /\.css$/,
+                test: /\.(css|scss)$/,
                 exclude: [
                     path.join(__dirname, "node_modules")
                 ],
@@ -88,7 +88,7 @@ const config = {
                     ]
                 })
             },
-            /*压缩scss为css*/
+            /*/!*压缩scss为css*!/
             {
                 test: /\.scss$/,
                 exclude: [
@@ -97,7 +97,7 @@ const config = {
                 use: ExtractTextPlugin.extract({
                     fallback: "style-loader",
                     use: [
-                        // /*将px转换为rem*/
+                        // /!*将px转换为rem*!/
                         // {
                         //     loader: "webpack-px-to-rem",
                         //     query: {
@@ -110,7 +110,7 @@ const config = {
                         //         floatWidth: 2
                         //     }
                         // },
-                        /*压缩css*/
+                        /!*压缩css*!/
                         {
                             loader: "css-loader",
                             options: {
@@ -120,7 +120,7 @@ const config = {
                         {
                             loader: "sass-loader"
                         },
-                        /*自动配置前缀*/
+                        /!*自动配置前缀*!/
                         {
                             loader: "postcss-loader",
                             options: {
@@ -147,7 +147,7 @@ const config = {
                         }
                     ]
                 })
-            },
+            },*/
             /*压缩图片*/
             {
                 test: /\.(png|svg|jpg|gif|jepg)$/,
