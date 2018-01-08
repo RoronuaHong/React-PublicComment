@@ -1,9 +1,9 @@
 import React, { PureComponent } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
 
 import HomeHeader from "../../components/HomeHeader";
+import Category from "../../components/Category";
 
 class Home extends PureComponent {
     constructor(props, context) {
@@ -13,7 +13,7 @@ class Home extends PureComponent {
         return (
             <React.Fragment>
                 <HomeHeader cityName={ this.props.userinfo.cityName } />
-                <Link to="/list">to list</Link>
+                <Category />
             </React.Fragment>
         );
     }
