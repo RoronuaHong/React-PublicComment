@@ -1,15 +1,14 @@
 import React from "react";
-import { bowserHistory } from "react-router";
 
 class List extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
 
         this.clickHandler = this.clickHandler.bind(this);
     }
 
     clickHandler(value) {
-        bowserHistory.push("/detail/" + value);
+        this.props.history.push("/detail/" + value);
     }
 
     render() {

@@ -80,7 +80,8 @@ const config = {
                                     })
                                 ]
                             }
-                        }
+                        },
+                        "sass-loader"
                     ]
                 })
             },
@@ -151,6 +152,11 @@ const config = {
                     "url-loader?limit=819200&name=images/[name].[ext]",
                     "image-webpack-loader?{pngquant:{quality: '50-70', speed: 8}, mozjpeg: {quality: 50}}"
                 ]
+            },
+            /*配置字体文件*/
+            {
+                test: /\.(png|woff|woff2?|eot|ttf|otf)($|\?)/i,
+                loader: 'url-loader?limit=5000'
             }
         ]
     },

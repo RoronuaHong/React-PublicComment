@@ -7,7 +7,7 @@ export function login(data) {
     }
 }
 
-export function updateCityName(data) {
+export function update(data) {
     return {
         type: actionTypes.UPDATE_CITYNAME,
         data

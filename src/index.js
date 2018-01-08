@@ -8,12 +8,13 @@ import AppRouter from "./routers/AppRouter";
 import { getData, postData } from "./fetch/data";
 
 import "./scss/common/reset";
+import "./scss/common/fonts";
 import "./scss/index";
 
 let store = configureStore();
 
-getData();
-postData();
+// getData();
+// postData();
 
 render(
     <Provider store={ store }>

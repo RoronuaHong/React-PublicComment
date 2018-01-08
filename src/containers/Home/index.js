@@ -1,15 +1,37 @@
-import React from "react";
+import React, { PureComponent } from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
 
-class Home extends React.Component {
+import HomeHeader from "../../components/HomeHeader";
+
+class Home extends PureComponent {
+    constructor(props, context) {
+        super(props, context);
+    }
     render() {
         return (
             <React.Fragment>
-                <p>Home</p>
+                <HomeHeader cityName={ this.props.userinfo.cityName } />
                 <Link to="/list">to list</Link>
             </React.Fragment>
         );
     }
 }
 
-export default Home;
+function mapStateToProps(state) {
+    return {
+        userinfo: state.userinfo
+    }
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+
+    }
+}
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Home);
