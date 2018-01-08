@@ -3,10 +3,9 @@ import React from "react";
 class A extends React.PureComponent {
     render() {
         return (
-            <div>
+            <React.Fragment>
                 <p>{ this.props.userinfo.userid }</p>
-                <p>{ this.props.userinfo.age }</p>
-            </div>
+            </React.Fragment>
         );
     }
 }

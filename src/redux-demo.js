@@ -1,10 +1,8 @@
 import { createStore } from "redux";
 
 export default function() {
-
-    //定义计算规则,即reducer
     function counter(state = 0, action) {
-        switch (action.type) {
+        switch(action.type) {
             case "INCREMENT":
                 return state + 1;
             case "DECREMENT":
@@ -14,10 +12,9 @@ export default function() {
         }
     }
 
-    //根据规则生成store
-    let store = createStore(counter);
+    const store = createStore(counter);
 
-    //定义数据(即state)变化之后的派发规则
+    //设置订阅
     store.subscribe(() => {
         console.log("fn1: ", store.getState());
     });
@@ -26,7 +23,7 @@ export default function() {
         console.log("fn2: ", store.getState());
     });
 
-    //触发数据变化
+    //设置发布
     store.dispatch({
         type: "INCREMENT"
     });

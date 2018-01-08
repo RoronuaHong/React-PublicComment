@@ -5,16 +5,20 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --history-api-fallback --inline --open --colors --progress --config webpack.dev.js",
-    "build": "webpack --config webpack.prod.js",
+    "start": "set NODE_ENV=dev && webpack-dev-server --hot --open --color --progress webpack.config.js",
+    "build": "rd/s/q build && set NODE_DEV=production webpack -p --progress --config webpack.production.js",
     "mock": "node ./src/mock/server.js"
   },
   "author": "slim。",
   "license": "ISC",
   "dependencies": {
-    "es6-promise": "^4.2.2",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "react-router": "^4.2.0",
+    "redux": "^3.7.2",
+    "react-redux": "^5.0.6",
+    "react-router-dom": "^4.2.2",
+    "es6-promise": "^4.2.2",
     "whatwg-fetch": "^2.0.3"
   },
   "devDependencies": {
@@ -39,11 +43,7 @@
     "postcss-loader": "^2.0.8",
     "prop-type": "^0.0.1",
     "react-bootstrap": "^0.31.5",
-    "react-redux": "^5.0.6",
-    "react-router": "^4.2.0",
-    "react-router-dom": "^4.2.2",
     "react-router-native": "^4.2.0",
-    "redux": "^3.7.2",
     "redux-devtools": "^3.4.0",
     "sass-loader": "^6.0.6",
     "serviceworker-webpack-plugin": "^0.2.3",

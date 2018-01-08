@@ -1,8 +1,10 @@
 import { combineReducers } from "redux";
 import userinfo from "./userinfo";
+import operation from "./operation";
 
 const rootReducers = combineReducers({
-    userinfo
+    userinfo,
+    operation
 });
 
 export default rootReducers;

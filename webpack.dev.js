@@ -6,6 +6,12 @@ module.exports = merge(common, {
     devServer: {
         contentBase: "./src",
         compress: true,
-        port: 7777
+        port: 7777,
+        proxy: {
+            "/api": {
+                target: "http://localhost:3001",
+                secure: false
+            }
+        }
     }
 });

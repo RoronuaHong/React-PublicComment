@@ -1,22 +1,25 @@
 import React from "react";
 
 class C extends React.PureComponent {
+    constructor() {
+        super();
 
-    //修改
-    changeUserInfo() {
-        const actions = this.props.actions;
-        actions.login({
-            userid: "321",
-            city: "XiaMen",
-            age: 27
-        })
+        this.changeDate = this.changeDate.bind(this);
+    }
+
+    //修改数据
+    changeDate() {
+        this.props.actions.login({
+            userid: "333",
+            city: "ShangHai"
+        });
     }
 
     render() {
         return (
-            <div>
-                <button onClick={ this.changeUserInfo.bind(this) }>修改</button>
-            </div>
+            <React.Fragment>
+                <button onClick={ this.changeDate }>修改</button>
+            </React.Fragment>
         );
     }
 }

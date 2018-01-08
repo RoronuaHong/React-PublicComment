@@ -3,23 +3,21 @@ import { render } from "react-dom";
 import { Provider } from "react-redux";
 import configureStore from "./store/configureStore";
 
-import Hello from "./containers/Hello";
-import Todo from "./containers/Todo";
+import AppRouter from "./routers/AppRouter";
+
+import { getData, postData } from "./fetch/data";
 
 import "./scss/common/reset";
 import "./scss/index";
 
-// import runtime from "serviceworker-webpack-plugin/lib/runtime";
+let store = configureStore();
 
-// if(window.location.href != 7777) {
-//     const registeration = runtime.register();
-// }
-
-const store = configureStore();
+getData();
+postData();
 
 render(
     <Provider store={ store }>
-        <Hello />
+        <AppRouter />
     </Provider>,
     document.querySelector("#root")
 );

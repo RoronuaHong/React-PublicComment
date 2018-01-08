@@ -1,5 +1,4 @@
 const path = require("path");
-const pkg = require("./package.json");
 const webpack = require("webpack");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
@@ -11,10 +10,7 @@ const distPath = path.resolve(__dirname, "dist");
 
 const config = {
     entry: {
-        main: "./src/index.js",
-
-        //将第三方依赖单独打包
-        // vendor: Object.keys(pkg.dependencies)
+        main: "./src/index",
     },
     output: {
         publicPath: "",
