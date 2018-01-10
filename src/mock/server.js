@@ -1,5 +1,7 @@
 const express = require("express"),
-    bodyParser = require('body-parser'),
+    bodyParser = require("body-parser"),
+    homeAdData = require("./home/ad"),
+    homeListData = require("./home/list"),
     app = express();
 
     app.use(bodyParser.json({limit: '1mb'}));  //body-parser 解析json格式数据
@@ -13,6 +15,14 @@ app
     })
     .get("/api/1", (req, res) => {
         res.send("api1");
+    })
+    //获取homead
+    .get("/api/homead", (req, res) => {
+        res.send(homeAdData);
+    })
+    //首页 —— 推荐列表
+    .get("/api/homelist/:city/:page", (req, res) => {
+        res.send(homeListData);
     })
     .all("/api/2", (req, res) => {
         res.send("api2");

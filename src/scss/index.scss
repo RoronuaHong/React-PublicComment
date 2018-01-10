@@ -1,9 +1,11 @@
-//.flex-box {
-//  display: flex;
-//  justify-content: center;
-//  align-content: flex-start;
-//}
-
+.flex-box {
+  display: flex;
+  justify-content: center;
+  align-content: flex-start;
+}
+html, body {
+  background-color: #e6e6e6;
+}
 .float-left {
   float: left;
 }

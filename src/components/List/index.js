@@ -1,7 +1,9 @@
-import React from "react";
-import { render } from "react-dom";
+import React, { PureComponent } from "react";
+import Item from "./Item";
 
-class List extends React.PureComponent {
+import "./style";
+
+class List extends PureComponent {
     constructor(props, context) {
         super(props, context);
 
@@ -13,20 +15,18 @@ class List extends React.PureComponent {
     }
 
     render() {
-        const data = this.props.todos;
+        const data = this.props.data;
 
         return (
-            <ul style={{ width: "100%", lineHeight: "40px", border: "1px solid #ccc" }}>
+            <div className="list-container">
                 {
                     data.map((item, index) => {
                         return (
-                            <li key={index} onClick={ () => this.clickHandle(item.id) }>
-                                { item.text }
-                            </li>
+                            <Item key={ index } data={ item }/>
                         )
                     })
                 }
-            </ul>
+            </div>
         );
     }
 }
