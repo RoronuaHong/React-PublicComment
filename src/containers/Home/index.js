@@ -1,5 +1,5 @@
 import React, { PureComponent } from "react";
-import { Link } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 
 import HomeHeader from "../../components/HomeHeader";
@@ -14,7 +14,7 @@ class Home extends PureComponent {
     render() {
         return (
             <React.Fragment>
-                <HomeHeader cityName={ this.props.userinfo.cityName } />
+                <HomeHeader cityName={ this.props.userinfo.cityName } history={ this.props.history } />
                 <Category />
                 <div style={{height: '15px'}}></div>
                 <Ad />
@@ -36,7 +36,7 @@ function mapDispatchToProps(dispatch) {
     }
 }
 
-export default connect(
+export default withRouter(connect(
     mapStateToProps,
     mapDispatchToProps
-)(Home);
+)(Home));

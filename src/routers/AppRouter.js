@@ -5,7 +5,7 @@ import App from "../containers";
 import SubRouter from "./SubRouter";
 
 import createBrowserHistory from "history/createBrowserHistory";
-const customHistory = createBrowserHistory();
+const history = createBrowserHistory();
 
 export default class AppRouter extends Component {
     constructor(props) {
@@ -14,7 +14,7 @@ export default class AppRouter extends Component {
 
     render() {
         return (
-            <Router history={ customHistory }>
+            <Router history={ history }>
                 <App>
                     <Route path="/" component={ SubRouter }></Route>
                 </App>

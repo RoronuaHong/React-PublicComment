@@ -8,7 +8,7 @@ class List extends React.Component {
     }
 
     clickHandler(value) {
-        this.props.history.push("/detail/" + value);
+        this.props.history.replace("/detail/" + value);
     }
 
     render() {

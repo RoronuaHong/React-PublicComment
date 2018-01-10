@@ -1,4 +1,5 @@
 import React, { PureComponent } from "react";
+import { Link } from "react-router-dom";
 
 import "./style";
 
@@ -10,12 +11,16 @@ class HomeHeader extends PureComponent {
         return (
             <div className="home-header clearfix">
                 <div className="header-city float-left">
-                    { this.props.cityName }
-                    &nbsp;
-                    <i className="icon-angle-down"></i>
+                    <Link to="/city">
+                        { this.props.cityName }
+                        &nbsp;
+                        <i className="icon-angle-down"></i>
+                    </Link>
                 </div>
                 <div className="header-user-center float-right">
-                    <i className="icon-user"></i>
+                    <Link to="/login">
+                        <i className="icon-user"></i>
+                    </Link>
                 </div>
                 <div className="header-search">
                     <div className="search-container">
