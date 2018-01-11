@@ -2,6 +2,7 @@ const express = require("express"),
     bodyParser = require("body-parser"),
     homeAdData = require("./home/ad"),
     homeListData = require("./home/list"),
+    SearchListData = require("./search/search"),
     app = express();
 
     app.use(bodyParser.json({limit: '1mb'}));  //body-parser 解析json格式数据
@@ -23,6 +24,10 @@ app
     //首页 —— 推荐列表
     .get("/api/homelist/:city/:page", (req, res) => {
         res.send(homeListData);
+    })
+    //获取搜索页
+    .get("/api/search/:page/:city/:category/:keyword?", (req, res) => {
+        res.send(SearchListData);
     })
     .all("/api/2", (req, res) => {
         res.send("api2");

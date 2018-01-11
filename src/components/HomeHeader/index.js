@@ -1,12 +1,21 @@
 import React, { PureComponent } from "react";
 import { Link } from "react-router-dom";
 
+import SearchInput from "../SearchInput";
+
 import "./style";
 
 class HomeHeader extends PureComponent {
     constructor(props, context) {
         super(props, context);
+
+        this.enterHandle = this.enterHandle.bind(this);
     }
+
+    enterHandle(value) {
+        this.props.history.push("/search/all/" + encodeURIComponent(value));
+    }
+
     render() {
         return (
             <div className="home-header clearfix">
@@ -25,7 +34,7 @@ class HomeHeader extends PureComponent {
                 <div className="header-search">
                     <div className="search-container">
                         <i className="icon-search"></i>
-                        <input type="text" placeholder="请输入关键字"/>
+                        <SearchInput value="" enterHandle={ this.enterHandle } />
                     </div>
                 </div>
             </div>

@@ -11,6 +11,7 @@ class Home extends PureComponent {
     constructor(props, context) {
         super(props, context);
     }
+
     render() {
         return (
             <React.Fragment>
@@ -30,7 +31,7 @@ function mapStateToProps(state) {
     }
 }
 
-function mapDispatchToProps(dispatch) {
+function mapDispatchToProps() {
     return {
 
     }

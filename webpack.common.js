@@ -13,7 +13,7 @@ const config = {
         main: "./src/index",
     },
     output: {
-        publicPath: "",
+        publicPath: "/",
         path: distPath,
         filename: "[name].[chunkhash:10].js",
         chunkFilename: "[id].chunk.js"
@@ -85,66 +85,6 @@ const config = {
                     ]
                 })
             },
-            /*/!*压缩scss为css*!/
-            {
-                test: /\.scss$/,
-                exclude: [
-                    path.join(__dirname, "node_modules")
-                ],
-                use: ExtractTextPlugin.extract({
-                    fallback: "style-loader",
-                    use: [
-                        // /!*将px转换为rem*!/
-                        // {
-                        //     loader: "webpack-px-to-rem",
-                        //     query: {
-                        //         // 1rem=npx 默认为 75
-                        //         basePx: 75,
-                        //         // 只会转换大于min的px 默认为0
-                        //         // 因为很小的px（比如border的1px）转换为rem后在很小的设备上结果会小于1px，有的设备就会不显示
-                        //         min: 1,
-                        //         // 转换后的rem值保留的小数点后位数 默认为3
-                        //         floatWidth: 2
-                        //     }
-                        // },
-                        /!*压缩css*!/
-                        {
-                            loader: "css-loader",
-                            options: {
-                                minimize: true
-                            }
-                        },
-                        {
-                            loader: "sass-loader"
-                        },
-                        /!*自动配置前缀*!/
-                        {
-                            loader: "postcss-loader",
-                            options: {
-                                ident: 'postcss',
-                                plugins: [
-                                    require('autoprefixer')({
-                                        browsers: [
-                                            'Chrome >= 35',
-                                            'Firefox >= 38',
-                                            'Edge >= 12',
-                                            'Explorer >= 10',
-                                            'iOS >= 8',
-                                            'Safari >= 8',
-                                            'Android 2.3',
-                                            'Android >= 4',
-                                            'Opera >= 12'
-                                        ],
-                                        cascade: true,
-                                        add: true,
-                                        remove: true
-                                    })
-                                ]
-                            }
-                        }
-                    ]
-                })
-            },*/
             /*压缩图片*/
             {
                 test: /\.(png|svg|jpg|gif|jepg)$/,

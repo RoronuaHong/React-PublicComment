@@ -1,0 +1,26 @@
+#search-header {
+  position: relative;
+  padding: 10px;
+  background-color: rgb(233, 32, 61);
+  text-align: center;
+  color: #fff;
+  .input-container {
+    overflow: hidden;
+    margin-left: 30px;
+    margin-right: 10px;
+    padding: 5px;
+    background-color: #fff;
+    text-align: left;
+    border-radius: 15px;
+    i {
+      color: #ccc;
+    }
+  }
+  .back-icon {
+    position: absolute;
+    left: 20px;
+    width: 16px;
+    height: 16px;
+    margin-top: 6px;
+  }
+}
