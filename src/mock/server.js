@@ -3,6 +3,8 @@ const express = require("express"),
     homeAdData = require("./home/ad"),
     homeListData = require("./home/list"),
     SearchListData = require("./search/search"),
+    infoData = require("./detail/info"),
+    commentData = require("./detail/comment"),
     app = express();
 
     app.use(bodyParser.json({limit: '1mb'}));  //body-parser 解析json格式数据
@@ -28,6 +30,14 @@ app
     //获取搜索页
     .get("/api/search/:page/:city/:category/:keyword?", (req, res) => {
         res.send(SearchListData);
+    })
+    //获取商户详情
+    .get("/api/detail/info/:id", (req, res) => {
+        res.send(infoData);
+    })
+    //获取商户评价
+    .get("/api/detail/comment/:page/:id", (req, res) => {
+        res.send(commentData);
     })
     .all("/api/2", (req, res) => {
         res.send("api2");

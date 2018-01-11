@@ -16,7 +16,6 @@ class List extends PureComponent {
 
     render() {
         const data = this.props.data;
-
         return (
             <div className="list-container">
                 {

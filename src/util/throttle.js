@@ -6,11 +6,12 @@ export default function throttle(fn, duraction, delay) {
             _this = this,
             args = Array.prototype.slice.call(arguments);
 
+        clearTimeout(fn.timer);
+
         if(endTime - startTime >= duraction) {
             fn.apply(_this, args);
             startTime = endTime;
         } else {
-            clearTimeout(fn.timer);
             fn.timer = setTimeout(() => {
                 fn.apply(_this, args);
             }, delay);

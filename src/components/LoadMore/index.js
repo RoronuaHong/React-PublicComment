@@ -19,7 +19,7 @@ class LoadMore extends PureComponent {
 
     scrollLoad() {
         const wrapper = this.refs.wrapper,
-            top = wrapper.getBoundingClientRect().top,
+            top = wrapper && wrapper.getBoundingClientRect().top,
             windowHeight = window.screen.height;
 
         if(this.props.isLoadingMore) {

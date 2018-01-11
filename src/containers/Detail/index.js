@@ -1,9 +1,20 @@
-import React from "react";
+import React, { PureComponent } from "react";
+import Header from "../../components/Header";
+import Info from "./subpages/info";
+import Comment from "./subpages/comment";
 
-class Detail extends React.Component {
+class Detail extends PureComponent {
+    constructor(props, context) {
+        super(props, context);
+    }
+
     render() {
         return (
-            <p>Detail, url参数: { this.props.match.params.id }</p>
+            <div>
+                <Header title="商户详情"/>
+                <Info id={ this.props.match.params.id } />
+                <Comment id={ this.props.match.params.id } />
+            </div>
         );
     }
 }

@@ -29,8 +29,15 @@ class SearchList extends PureComponent {
         this.loadPageData();
     }
 
-    componentDidUpdate() {
-        console.log(222);
+    componentDidUpdate(prevState, prevProps) {
+        if(prevState.keyword === this.props.keyword && prevState.category === this.props.category) {
+            return;
+        }
+
+        //初始化数据
+        this.setState(initialState);
+
+        this.loadPageData();
     }
 
     //加载数据
