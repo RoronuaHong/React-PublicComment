@@ -5,6 +5,7 @@ const express = require("express"),
     SearchListData = require("./search/search"),
     infoData = require("./detail/info"),
     commentData = require("./detail/comment"),
+    orderListData = require("./orderlist/orderlist"),
     app = express();
 
     app.use(bodyParser.json({limit: '1mb'}));  //body-parser 解析json格式数据
@@ -38,6 +39,16 @@ app
     //获取商户评价
     .get("/api/detail/comment/:page/:id", (req, res) => {
         res.send(commentData);
+    })
+    //获取用户订单
+    .get("/api/orderlist/:name", (req, res) => {
+        res.send(orderListData);
+    })
+    //提交数据
+    .post("/api/submitComment", (req, res) => {
+        res.send({
+            errno: 0
+        });
     })
     .all("/api/2", (req, res) => {
         res.send("api2");

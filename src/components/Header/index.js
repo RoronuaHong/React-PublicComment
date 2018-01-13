@@ -10,7 +10,13 @@ class Header extends PureComponent {
     }
 
     clickHandle() {
-       window.history.back();
+        const backRouter = this.props.backRouter;
+
+        if(backRouter) {
+            this.props.history.push(backRouter);
+        } else {
+            window.history.back();
+        }
     }
 
     render() {

@@ -1,5 +1,5 @@
 import React , { Component } from "react";
-import { Router, Route } from "react-router-dom";
+import { HashRouter, Route } from "react-router-dom";
 
 import App from "../containers";
 import SubRouter from "./SubRouter";
@@ -14,11 +14,11 @@ export default class AppRouter extends Component {
 
     render() {
         return (
-            <Router history={ history }>
+            <HashRouter>
                 <App>
                     <Route path="/" component={ SubRouter }></Route>
                 </App>
-            </Router>
+            </HashRouter>
         );
     }
 }

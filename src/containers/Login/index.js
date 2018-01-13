@@ -37,7 +37,7 @@ class Login extends PureComponent {
         //跳转链接
         if(params) {
             //跳转到指定的页面
-            this.props.history.push(params);
+            this.props.history.push(decodeURIComponent(params));
         } else {
             //跳转到默认的页面——即用户中心页
             this.goUserPage();

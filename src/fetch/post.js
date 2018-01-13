@@ -11,7 +11,6 @@ function obj2params(obj) {
     }
 
     if(result) {
-        console.log(result);
         result = result.slice(1);
     }
 
@@ -27,7 +26,7 @@ export function post(url, paramsObj) {
             "Accept": "application/json, text/plain, */*",
             "Content-Type": "application/x-www-form-urlencoded"
         },
-        // body: obj2params(paramsObj)
+        body: obj2params(paramsObj)
     });
 
     return result;
