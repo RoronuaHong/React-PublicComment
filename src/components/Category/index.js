@@ -14,7 +14,7 @@ class Category extends PureComponent {
     }
     render() {
         const opt = {
-            // auto: 2000,
+            auto: 2000,
             callback: (indexs) => {
                 this.setState({
                     indexs

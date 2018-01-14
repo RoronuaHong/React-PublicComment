@@ -13,9 +13,9 @@ class User extends PureComponent {
     }
 
     componentDidMount() {
-        // if(!this.props.userinfo.username) {
-        //     this.props.history.push("/login");
-        // }
+        if(!this.props.userinfo.username) {
+            this.props.history.push("/login");
+        }
     }
 
     render() {
@@ -23,7 +23,7 @@ class User extends PureComponent {
 
         return (
             <div>
-                <Header title="用户中心" backRouter="/" history={ this.props.history }/>
+                <Header title="用户中心" history={ this.props.history }/>
                 <UserInfo userinfo={ userinfo }/>
                 <OrderList userinfo={ userinfo } history={ this.props.history }/>
             </div>

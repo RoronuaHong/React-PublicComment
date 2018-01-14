@@ -4,6 +4,7 @@ import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as userinfoActions from "../../actions/userinfo";
+import * as loginActions from "../../actions/islogin";
 import Logins from "../../components/Login";
 
 class Login extends PureComponent {
@@ -59,7 +60,11 @@ class Login extends PureComponent {
     }
 
     goUserPage() {
-        this.props.history.push("/User");
+        if(this.props.referrer.referrer.indexOf("User") > -1) {
+            this.props.history.push("/");
+        } else {
+            this.props.history.push("/User");
+        }
     }
 
     render() {
@@ -79,13 +84,15 @@ class Login extends PureComponent {
 
 function mapStateToProps(state) {
     return {
-        userinfo: state.userinfo
+        userinfo: state.userinfo,
+        referrer: state.islogin
     }
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        userinfoActions: bindActionCreators(userinfoActions, dispatch)
+        userinfoActions: bindActionCreators(userinfoActions, dispatch),
+        loginActions: bindActionCreators(loginActions, dispatch)
     }
 }
 

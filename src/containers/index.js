@@ -4,6 +4,7 @@ import { CITYNAME } from "../config/localStoreKey";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import * as userInfoActions from "../actions/userinfo";
+import * as loginActions from "../actions/islogin";
 import { withRouter } from "react-router-dom";
 
 class App extends PureComponent {
@@ -34,6 +35,13 @@ class App extends PureComponent {
         });
     }
 
+    componentDidUpdate() {
+        //存储当前页面的路径
+        this.props.loginActions.islogin({
+            referrer: this.props.location.pathname
+        })
+    }
+
     render() {
         return (
             <React.Fragment>
@@ -58,7 +66,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        userInfoActions: bindActionCreators(userInfoActions, dispatch)
+        userInfoActions: bindActionCreators(userInfoActions, dispatch),
+        loginActions: bindActionCreators(loginActions, dispatch)
     }
 }
 
