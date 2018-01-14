@@ -17,7 +17,7 @@ class Home extends PureComponent {
             <React.Fragment>
                 <HomeHeader cityName={ this.props.userinfo.cityName } history={ this.props.history } />
                 <Category />
-                <div style={{height: '15px'}}></div>
+                {/*<div style={{height: '15px'}}></div>*/}
                 <Ad />
                 <List cityName={ this.props.userinfo.cityName } />
             </React.Fragment>

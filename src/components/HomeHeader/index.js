@@ -18,26 +18,30 @@ class HomeHeader extends PureComponent {
 
     render() {
         return (
-            <div className="home-header clearfix">
-                <div className="header-city float-left">
-                    <Link to="/city">
-                        { this.props.cityName }
-                        &nbsp;
-                        <i className="icon-angle-down"></i>
-                    </Link>
-                </div>
-                <div className="header-user-center float-right">
-                    <Link to="/login">
-                        <i className="icon-user"></i>
-                    </Link>
-                </div>
-                <div className="header-search">
-                    <div className="search-container">
-                        <i className="icon-search"></i>
-                        <SearchInput value="" enterHandle={ this.enterHandle } />
+            <React.Fragment>
+                <div className="home-header clearfix">
+                    <div className="header-city float-left">
+                        <Link to="/city">
+                            { this.props.cityName }
+                            &nbsp;
+                            <i className="icon-angle-down"></i>
+                        </Link>
+                    </div>
+                    <div className="header-user-center float-right">
+                        <Link to="/login">
+                            <i className="icon-user"></i>
+                        </Link>
+                    </div>
+                    <div className="header-search">
+                        <div className="search-container">
+                            <i className="icon-search"></i>
+                            <SearchInput value="" enterHandle={ this.enterHandle } />
+                        </div>
                     </div>
                 </div>
-            </div>
+                <div className="home-header-inner"></div>
+            </React.Fragment>
+
         );
     }
 }

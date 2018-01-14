@@ -10,8 +10,8 @@ class Login extends PureComponent {
 
         this.state = {
             username: "",
-            veritext: "发送验证码",
-            seconds: 10,
+            veritext: "",
+            seconds: 60,
             isClick: false
         }
 
@@ -23,6 +23,19 @@ class Login extends PureComponent {
     }
 
     componentDidMount() {
+        const downcount = localStore.getItem(DOWNCOUNT);
+
+        if(downcount) {
+            this.setState({
+                veritext: downcount + "秒",
+                isClick: true
+            });
+        } else {
+            this.setState({
+                veritext: "发送验证码"
+            });
+        }
+
         this.existDownCount();
     }
 
