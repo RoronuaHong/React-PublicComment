@@ -1,4 +1,6 @@
 import React, { PureComponent } from "react";
+import { DOWNCOUNT } from "../../config/localStoreKey";
+import localStore from "../../util/localStore";
 
 import "./style";
 
@@ -16,6 +18,12 @@ class Login extends PureComponent {
         this.changeHandle = this.changeHandle.bind(this);
         this.clickHandle = this.clickHandle.bind(this);
         this.changeVeri = this.changeVeri.bind(this);
+        this.existDownCount = this.existDownCount.bind(this);
+        this.setIntervalTime = this.setIntervalTime.bind(this);
+    }
+
+    componentDidMount() {
+        this.existDownCount();
     }
 
     changeHandle(e) {
@@ -29,8 +37,16 @@ class Login extends PureComponent {
         this.props.loginHandle(username);
     }
 
+    existDownCount() {
+        let downcount = localStore.getItem(DOWNCOUNT);
+        if (downcount && downcount > 0) {
+            this.setIntervalTime(downcount);
+        }
+    }
+
     //验证码倒计时(使用localStorage进行存储和读取)
     changeVeri() {
+        //异步执行
         this.setState({
             isClick: true
         });
@@ -38,21 +54,28 @@ class Login extends PureComponent {
         if(!this.state.isClick) {
             let seconds = this.state.seconds;
 
-            this.timer = setInterval(() => {
-                if(seconds > 0) {
-                    seconds--;
-                    this.setState({
-                        veritext: seconds + "秒"
-                    });
-                } else {
-                    clearInterval(this.timer);
-                    this.setState({
-                        veritext: "重新发送",
-                        isClick: false
-                    });
-                }
-            }, 1000);
+            this.setIntervalTime(seconds);
         }
+    }
+
+    setIntervalTime(seconds) {
+        this.timer = setInterval(() => {
+            if(seconds > 0) {
+                seconds--;
+                this.setState({
+                    veritext: seconds + "秒"
+                });
+
+                localStore.setItem(DOWNCOUNT, seconds);
+            } else {
+                clearInterval(this.timer);
+                this.setState({
+                    veritext: "重新发送",
+                    isClick: false
+                });
+                localStore.removeItem(DOWNCOUNT);
+            }
+        }, 1000);
     }
 
     render() {

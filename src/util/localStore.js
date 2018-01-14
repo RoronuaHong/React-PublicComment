@@ -3,11 +3,10 @@ export default {
         let value;
         try {
             value = localStorage.getItem(key);
+
+            return value;
         } catch(ex) {
-            //开发环境下提示error
-            if(__DEV__) {
-                console.log("localStorage.getItem报错, ", ex.message);
-            }
+            console.log("localStorage.getItem报错, ", ex.message);
         }
     },
     setItem(key, item) {
@@ -15,10 +14,14 @@ export default {
             //ios safari 无痕模式下, 直接使用 localStorage.setItem 会报错
             localStorage.setItem(key, item);
         } catch(ex) {
-            //开发模式下提示error
-            if(__DEV__) {
-                console.log("localStorage.setItem报错, ", ex.message);
-            }
+            console.log("localStorage.setItem报错, ", ex.message);
+        }
+    },
+    removeItem(key) {
+        try {
+            localStorage.removeItem(key);
+        } catch(ex) {
+            console.log("localStorage.setItem报错, ", ex.message);
         }
     }
 }
